@@ -1,0 +1,9 @@
+_BASE_: "../base_dh_VG.yaml"
+MODEL:
+  WEIGHTS: "./results/VG/dh/dh_swint_fpn_VG/model_final.pth"
+  ATSS:
+    NUM_CONVS: 2
+DATASETS:
+  TRAIN: ("vg_train",)
+  TEST: ("vg_val",)
+OUTPUT_DIR: "./results/VG/dh/dh_swint_fpn_VG/"

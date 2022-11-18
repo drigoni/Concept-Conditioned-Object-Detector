@@ -53,6 +53,19 @@ The project is structured as follows:
 ## Datasets
 For more details on the datasets used and how to download the online hosted versions, refer to this guide: [README](./datasets/README.md)
 
+## Concepts
+As stated in the paper, we adopted pre-trained embeddings for each WordNet concepts using th code of this repository: [WordNet_Embeddings](https://github.com/drigoni/WordNet_Embeddings). \
+The pre-trained weights must be placed in the `./concepts/` folder. Download them using the following link: [Download](https://drive.google.com/file/d/1e1R17scyKB_5uc6Op_td8oOOUo4fVIAN/view?usp=sharing). \
+The final `concept` folder structure should be the following:
+```
+|-- concept
+    |-- coco_to_synset.json
+    |-- vg_to_synset.json
+    |-- oid_to_synset.json
+    |-- vocab.json
+    |-- wn30_holE_500_150_0.1_0.2_embeddings.pickle
+```
+
 ## Usage
 ### Train
 Use the following command for training:
