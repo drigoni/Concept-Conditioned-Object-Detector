@@ -91,7 +91,7 @@ python train_net.py --config {TEST_CONFIG_FILE} --eval-only EVALUATOR_TYPE 'post
 ```
 **NOTE**: Configuration files for testing presents a test set for evaluation that is not always correct. For this reason, during evaluation indicate the dataset to adopt:
 ```
-python train_net.py --config {TEST_CONFIG_FILE} --eval-only EVALUATOR_TYPE 'default' DATASETS.TEST '("coco_2017_val_subset_old",)'
+python train_net.py --config {TEST_CONFIG_FILE} --eval-only EVALUATOR_TYPE 'default' DATASETS.TEST '("coco_2017_val_subset",)'
 ```
 All the datasets can be seen in the file: `./extra/datasets.py'`.
 
