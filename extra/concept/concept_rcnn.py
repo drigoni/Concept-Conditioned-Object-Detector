@@ -73,7 +73,7 @@ class ConceptGeneralizedRCNN(drigoniGeneralizedRCNN):
     @classmethod
     def from_config(cls, cfg):
         backbone = build_backbone(cfg)
-        # NOTE drigoni: this code is needed for using more than one convolutional (currently 0) network in the head.
+        # NOTE author: this code is needed for using more than one convolutional (currently 0) network in the head.
         feature_shapes = backbone.output_shape() # {'p2': ShapeSpec(channels=256, height=None, width=None, stride=4), 'p3': ShapeSpec(channels=256, height=None, width=None, stride=8), 'p4': ShapeSpec(channels=256, height=None, width=None, stride=16), 'p5': ShapeSpec(channels=256, height=None, width=None, stride=32), 'p6': ShapeSpec(channels=256, height=None, width=None, stride=64)}
         deepsets_dim = cfg.DEEPSETS.OUTPUT_DIM
         concept_fusion = cfg.CONCEPT.CONCEPT_FUSION

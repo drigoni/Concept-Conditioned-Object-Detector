@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """
 Created on 18/11/21
-Author: Davide Rigoni
-Emails: davide.rigoni.2@phd.unipd.it - drigoni@fbk.eu
+Author: Anonymous Anonymous 
+Emails: anonymous@anonymous.anonymous - anonymous@anonymous.anonymous
 Description: 
 """
 
@@ -96,7 +96,7 @@ class CATSS(ATSS):
         backbone = build_backbone(cfg)
         backbone_shape = backbone.output_shape()
         feature_shapes = [backbone_shape[f] for f in cfg.MODEL.ATSS.IN_FEATURES]
-        # NOTE drigoni: this code is needed for using more than one convolutional (currently 0) network in the head.
+        # NOTE author: this code is needed for using more than one convolutional (currently 0) network in the head.
         deepsets_dim = cfg.DEEPSETS.OUTPUT_DIM
         concept_fusion = cfg.CONCEPT.CONCEPT_FUSION
         if concept_fusion == "cat":

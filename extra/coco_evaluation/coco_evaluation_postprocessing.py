@@ -34,7 +34,7 @@ try:
 except ImportError:
     COCOeval_opt = COCOeval
 
-# NOTE drigoni: forcing to use always the standard pycocotools for evaluating. COCOeval_opt is written in C
+# NOTE author: forcing to use always the standard pycocotools for evaluating. COCOeval_opt is written in C
 COCOeval_opt = COCOeval
 
 
@@ -199,7 +199,7 @@ class COCOEvaluator(DatasetEvaluator):
             predictions = self._predictions
 
         
-        # NOTE drigoni: add here filtering
+        # NOTE author: add here filtering
         print("---- EVALUATING WITH AD-HOC POST-PROCESSING FILTERING")
         self.predictions = predictions = evaluation_filtering_process(self._coco_api, predictions, self.coco2synset, self._metadata)
 

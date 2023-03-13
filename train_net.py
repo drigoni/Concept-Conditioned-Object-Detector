@@ -73,7 +73,7 @@ class Trainer(DefaultTrainer):
             setup_logger()
         cfg = DefaultTrainer.auto_scale_workers(cfg, comm.get_world_size())
 
-        # NOTE: drigoni: add concepts to classes
+        # NOTE author: add concepts to classes
         concept_finder = ConceptFinder(cfg.CONCEPT.FILE, depth=cfg.CONCEPT.DEPTH, unique=cfg.CONCEPT.UNIQUE, only_name=cfg.CONCEPT.ONLY_NAME)
         coco2synset = concept_finder.coco2synset
 
@@ -117,13 +117,13 @@ class Trainer(DefaultTrainer):
             evaluator = COCOEvaluator
             return evaluator(dataset_name, cfg, True, output_folder, use_fast_impl=False)
         elif cfg.EVALUATOR_TYPE == 'postProcessing':
-            # NOTE: drigoni: add concepts to classes
+            # NOTE author: add concepts to classes
             concept_finder = ConceptFinder(cfg.CONCEPT.FILE, depth=cfg.CONCEPT.DEPTH, unique=cfg.CONCEPT.UNIQUE, only_name=cfg.CONCEPT.ONLY_NAME)
             coco2synset = concept_finder.coco2synset
             evaluator = COCOEvaluator_postProcessing
             return evaluator(dataset_name, coco2synset, cfg, True, output_folder, use_fast_impl=False)
         elif cfg.EVALUATOR_TYPE == 'classAgnostic':
-            # NOTE: drigoni: add concepts to classes
+            # NOTE author: add concepts to classes
             concept_finder = ConceptFinder(cfg.CONCEPT.FILE, depth=cfg.CONCEPT.DEPTH, unique=cfg.CONCEPT.UNIQUE, only_name=cfg.CONCEPT.ONLY_NAME)
             coco2synset = concept_finder.coco2synset
             evaluator = COCOEvaluator_classAgnostic
@@ -145,7 +145,7 @@ class Trainer(DefaultTrainer):
             proposal_files=cfg.DATASETS.PROPOSAL_FILES_TRAIN if cfg.MODEL.LOAD_PROPOSALS else None,
         )
 
-        # NOTE drigoni: introduces a new mapper
+        # NOTE author: introduces a new mapper
         mapper = ConceptMapper(cfg, True, coco2synset=coco2synset)
 
         if cfg.SEED!=-1:
@@ -161,14 +161,14 @@ class Trainer(DefaultTrainer):
 
         dataset = get_detection_dataset_dicts(
             dataset_name,
-            filter_empty=True,  # NOTE drigoni: True instead of False. We need at least one annotation.
+            filter_empty=True,  # NOTE author: True instead of False. We need at least one annotation.
             proposal_files=[
                 cfg.DATASETS.PROPOSAL_FILES_TEST[list(cfg.DATASETS.TEST).index(x)] for x in dataset_name
             ]
             if cfg.MODEL.LOAD_PROPOSALS
             else None,
         )
-        # NOTE drigoni: introduces a new mapper for the test
+        # NOTE author: introduces a new mapper for the test
         mapper = ConceptMapper(cfg, False, coco2synset=coco2synset)
         return build_detection_test_loader(dataset=dataset, mapper=mapper,
                                            num_workers=cfg.DATALOADER.NUM_WORKERS,

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """
 Created on 20/12/21
-Author: Davide Rigoni
-Emails: davide.rigoni.2@phd.unipd.it - drigoni@fbk.eu
+Author: Anonymous Anonymous 
+Emails: anonymous@anonymous.anonymous - anonymous@anonymous.anonymous
 Description: 
 """
 

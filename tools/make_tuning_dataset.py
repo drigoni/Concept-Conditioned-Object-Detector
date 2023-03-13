@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """
 Created on 16/11/21
-Author: Davide Rigoni
-Emails: davide.rigoni.2@phd.unipd.it - drigoni@fbk.eu
+Author: Anonymous Anonymous 
+Emails: anonymous@anonymous.anonymous - anonymous@anonymous.anonymous
 Description: This file includes the code needed for creating the evaluation dataset.
 """
 # import nltk
@@ -54,7 +54,7 @@ class MakeEvaluationDataset:
     @staticmethod
     def update_dataset_info(annotations):
         annotations['info']['description'] = "COCO 2017 Dataset used for experiments."
-        annotations['info']['contributor'] = "Davide Rigoni"
+        annotations['info']['contributor'] = "Anonymous Anonymous "
         annotations['info']['date_created'] = "2022/10/25"
 
     def generate_train_valid_sets(self, original_set):

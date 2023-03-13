@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """
 Created on 16/11/21
-Author: Davide Rigoni
-Emails: davide.rigoni.2@phd.unipd.it - drigoni@fbk.eu
+Author: Anonymous Anonymous 
+Emails: anonymous@anonymous.anonymous - anonymous@anonymous.anonymous
 Description: This file includes the code needed for creating the new concept dataset.
 """
 # import nltk
@@ -63,7 +63,7 @@ class MakeConceptDataset:
         annotations['info']['description'] = "COCO 2017 Dataset augmented with concepts."
         annotations['info']['concept_max_level'] = level
         annotations['info']['unique'] = unique
-        annotations['info']['contributor'] = "Davide Rigoni"
+        annotations['info']['contributor'] = "Anonymous Anonymous "
         annotations['info']['date_created'] = "2021/12/15"
 
     @staticmethod

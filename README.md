@@ -137,7 +137,7 @@ However, we provide the models with the best performance.
 
 
 # Information
-For any questions and comments, contact [davide.rigoni.2@phd.unipd.it](davide.rigoni.2@phd.unipd.it).
+For any questions and comments, contact [anonymous@anonymous.anonymous](anonymous@anonymous.anonymous).
 
 # License
 MIT

@@ -112,42 +112,42 @@ for split in SPLITS:
 
 # -- Process 3 terminated with the following error:
 # Traceback (most recent call last):
-#   File "/ceph/hpc/home/eudavider/.conda/envs/dynamicHead/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 59, in _wrap
+#   File "/ceph/hpc/home/anonymousr/.conda/envs/dynamicHead/lib/python3.9/site-packages/torch/multiprocessing/spawn.py", line 59, in _wrap
 #     fn(i, *args)
-#   File "/ceph/hpc/home/eudavider/.local/lib/python3.9/site-packages/detectron2/engine/launch.py", line 126, in _distributed_worker
+#   File "/ceph/hpc/home/anonymousr/.local/lib/python3.9/site-packages/detectron2/engine/launch.py", line 126, in _distributed_worker
 #     main_func(*args)
-#   File "/ceph/hpc/scratch/user/eudavider/repository/DynamicHead/train_net.py", line 330, in main
+#   File "/ceph/hpc/scratch/user/anonymousr/repository/DynamicHead/train_net.py", line 330, in main
 #     return trainer.train()
-#   File "/ceph/hpc/home/eudavider/.local/lib/python3.9/site-packages/detectron2/engine/defaults.py", line 484, in train
+#   File "/ceph/hpc/home/anonymousr/.local/lib/python3.9/site-packages/detectron2/engine/defaults.py", line 484, in train
 #     super().train(self.start_iter, self.max_iter)
-#   File "/ceph/hpc/home/eudavider/.local/lib/python3.9/site-packages/detectron2/engine/train_loop.py", line 149, in train
+#   File "/ceph/hpc/home/anonymousr/.local/lib/python3.9/site-packages/detectron2/engine/train_loop.py", line 149, in train
 #     self.run_step()
-#   File "/ceph/hpc/home/eudavider/.local/lib/python3.9/site-packages/detectron2/engine/defaults.py", line 494, in run_step
+#   File "/ceph/hpc/home/anonymousr/.local/lib/python3.9/site-packages/detectron2/engine/defaults.py", line 494, in run_step
 #     self._trainer.run_step()
-#   File "/ceph/hpc/home/eudavider/.local/lib/python3.9/site-packages/detectron2/engine/train_loop.py", line 267, in run_step
+#   File "/ceph/hpc/home/anonymousr/.local/lib/python3.9/site-packages/detectron2/engine/train_loop.py", line 267, in run_step
 #     data = next(self._data_loader_iter)
-#   File "/ceph/hpc/home/eudavider/.local/lib/python3.9/site-packages/detectron2/data/common.py", line 234, in __iter__
+#   File "/ceph/hpc/home/anonymousr/.local/lib/python3.9/site-packages/detectron2/data/common.py", line 234, in __iter__
 #     for d in self.dataset:
-#   File "/ceph/hpc/home/eudavider/.conda/envs/dynamicHead/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 521, in __next__
+#   File "/ceph/hpc/home/anonymousr/.conda/envs/dynamicHead/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 521, in __next__
 #     data = self._next_data()
-#   File "/ceph/hpc/home/eudavider/.conda/envs/dynamicHead/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1203, in _next_data
+#   File "/ceph/hpc/home/anonymousr/.conda/envs/dynamicHead/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1203, in _next_data
 #     return self._process_data(data)
-#   File "/ceph/hpc/home/eudavider/.conda/envs/dynamicHead/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1229, in _process_data
+#   File "/ceph/hpc/home/anonymousr/.conda/envs/dynamicHead/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1229, in _process_data
 #     data.reraise()
-#   File "/ceph/hpc/home/eudavider/.conda/envs/dynamicHead/lib/python3.9/site-packages/torch/_utils.py", line 434, in reraise
+#   File "/ceph/hpc/home/anonymousr/.conda/envs/dynamicHead/lib/python3.9/site-packages/torch/_utils.py", line 434, in reraise
 #     raise exception
 # detectron2.data.detection_utils.SizeMismatchError: Caught SizeMismatchError in DataLoader worker process 15.
 # Original Traceback (most recent call last):
-#   File "/ceph/hpc/home/eudavider/.conda/envs/dynamicHead/lib/python3.9/site-packages/torch/utils/data/_utils/worker.py", line 287, in _worker_loop
+#   File "/ceph/hpc/home/anonymousr/.conda/envs/dynamicHead/lib/python3.9/site-packages/torch/utils/data/_utils/worker.py", line 287, in _worker_loop
 #     data = fetcher.fetch(index)
-#   File "/ceph/hpc/home/eudavider/.conda/envs/dynamicHead/lib/python3.9/site-packages/torch/utils/data/_utils/fetch.py", line 32, in fetch
+#   File "/ceph/hpc/home/anonymousr/.conda/envs/dynamicHead/lib/python3.9/site-packages/torch/utils/data/_utils/fetch.py", line 32, in fetch
 #     data.append(next(self.dataset_iter))
-#   File "/ceph/hpc/home/eudavider/.local/lib/python3.9/site-packages/detectron2/data/common.py", line 201, in __iter__
+#   File "/ceph/hpc/home/anonymousr/.local/lib/python3.9/site-packages/detectron2/data/common.py", line 201, in __iter__
 #     yield self.dataset[idx]
-#   File "/ceph/hpc/home/eudavider/.local/lib/python3.9/site-packages/detectron2/data/common.py", line 90, in __getitem__
+#   File "/ceph/hpc/home/anonymousr/.local/lib/python3.9/site-packages/detectron2/data/common.py", line 90, in __getitem__
 #     data = self._map_func(self._dataset[cur_idx])
-#   File "/ceph/hpc/scratch/user/eudavider/repository/DynamicHead/extra/concept/concept_mapper.py", line 279, in __call__
+#   File "/ceph/hpc/scratch/user/anonymousr/repository/DynamicHead/extra/concept/concept_mapper.py", line 279, in __call__
 #     utils.check_image_size(dataset_dict, image)
-#   File "/ceph/hpc/home/eudavider/.local/lib/python3.9/site-packages/detectron2/data/detection_utils.py", line 196, in check_image_size
+#   File "/ceph/hpc/home/anonymousr/.local/lib/python3.9/site-packages/detectron2/data/detection_utils.py", line 196, in check_image_size
 #     raise SizeMismatchError(
 # detectron2.data.detection_utils.SizeMismatchError: Mismatched image shape for image datasets/OpenImagesDataset/train/000e4617274e83fe.jpg, got (4000, 6016), expect (6016, 4000). Please check the width/height in your annotation.
