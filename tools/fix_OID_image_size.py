@@ -63,7 +63,10 @@ SPLITS = ['test', 'val', 'train']
 # SPLITS = ['train']
 for split in SPLITS:
     IMAGES = "./datasets/OpenImagesDataset/{}/".format(split)
-    ANNOTATIONS = "./datasets/OpenImagesDataset/annotations/openimages_v4_{}_bbox.json".format(split)
+    # ANNOTATIONS = "./datasets/OpenImagesDataset/annotations/openimages_v4_{}_bbox.json".format(split)
+    ANNOTATIONS = "./datasets/concept_OpenImagesDataset/annotations/openimages_v4_{}_bbox_subset_old.json".format(split)
+    # ANNOTATIONS = "./datasets/concept_OpenImagesDataset/annotations/openimages_v4_{}_bbox_all.json".format(split)
+    # ANNOTATIONS = "./datasets/concept_OpenImagesDataset/annotations/openimages_v4_{}_bbox_subset_old.json".format(split)
     # check_images(IMAGES, ANNOTATIONS)
     fix_images(IMAGES, ANNOTATIONS)
 

@@ -19,28 +19,53 @@ _PREDEFINED_CONCEPTS_SPLITS['coco'] = {
     # NOTE:  "coco_2017_val" is our "coco_2017_test" test set
     "coco_2017_train_all": ("coco/train2017",
                                     "concept_coco/annotations/instances_train2017_all.json"),
-    "coco_2017_train_subset": ("coco/train2017",
-                                    "concept_coco/annotations/instances_train2017_subset.json"),     
     "coco_2017_val_all": ("coco/val2017",
                                     "concept_coco/annotations/instances_val2017_all.json"),
+    "coco_2017_train_all_old": ("coco/train2017",
+                                    "concept_coco/annotations/instances_train2017_all_old.json"),
+    "coco_2017_val_all_old": ("coco/val2017",
+                                    "concept_coco/annotations/instances_val2017_all_old.json"),
+    "coco_2017_train_subset": ("coco/train2017",
+                                    "concept_coco/annotations/instances_train2017_subset.json"),     
     "coco_2017_val_subset": ("coco/val2017",
-                                    "concept_coco/annotations/instances_val2017_subset.json"),     
+                                    "concept_coco/annotations/instances_val2017_subset.json"),    
+    "coco_2017_train_subset_old": ("coco/train2017",
+                                    "concept_coco/annotations/instances_train2017_subset_old.json"),     
+    "coco_2017_val_subset_old": ("coco/val2017",
+                                    "concept_coco/annotations/instances_val2017_subset_old.json"),     
+    # augmented subset as subset_old
+    "coco_2017_val_subset_aug_subset_as_old": ("coco/val2017",
+                                    "concept_coco/annotations/instances_val2017_subset_aug_subset_as_old.json"),     
+    # depth
     "coco_2017_val_all_depth0": ("coco/val2017",
                                     "concept_coco/annotations/instances_val2017_all_depth0.json"),
-    "coco_2017_val_subset_depth0": ("coco/val2017",
-                                    "concept_coco/annotations/instances_val2017_subset_depth0.json"), 
     "coco_2017_val_all_depth2": ("coco/val2017",
                                     "concept_coco/annotations/instances_val2017_all_depth2.json"),
-    "coco_2017_val_subset_depth2": ("coco/val2017",
-                                    "concept_coco/annotations/instances_val2017_subset_depth2.json"),    
     "coco_2017_val_all_depth3": ("coco/val2017",
                                     "concept_coco/annotations/instances_val2017_all_depth3.json"),
-    "coco_2017_val_subset_depth3": ("coco/val2017",
-                                    "concept_coco/annotations/instances_val2017_subset_depth3.json"),    
     "coco_2017_val_all_depth4": ("coco/val2017",
                                     "concept_coco/annotations/instances_val2017_all_depth4.json"),
-    "coco_2017_val_subset_depth4": ("coco/val2017",
-                                    "concept_coco/annotations/instances_val2017_subset_depth4.json"),        
+    "coco_2017_val_all_old_depth0": ("coco/val2017",
+                                    "concept_coco/annotations/instances_val2017_all_old_depth0.json"),
+    "coco_2017_val_all_old_depth2": ("coco/val2017",
+                                    "concept_coco/annotations/instances_val2017_all_old_depth2.json"),
+    "coco_2017_val_all_old_depth3": ("coco/val2017",
+                                    "concept_coco/annotations/instances_val2017_all_old_depth3.json"),
+    "coco_2017_val_all_old_depth4": ("coco/val2017",
+                                    "concept_coco/annotations/instances_val2017_all_old_depth4.json"),
+    "coco_2017_val_subset_old_depth0": ("coco/val2017",
+                                    "concept_coco/annotations/instances_val2017_subset_old_depth0.json"), 
+    "coco_2017_val_subset_old_depth2": ("coco/val2017",
+                                    "concept_coco/annotations/instances_val2017_subset_old_depth2.json"),    
+    "coco_2017_val_subset_old_depth3": ("coco/val2017",
+                                    "concept_coco/annotations/instances_val2017_subset_old_depth3.json"),    
+    "coco_2017_val_subset_old_depth4": ("coco/val2017",
+                                    "concept_coco/annotations/instances_val2017_subset_old_depth4.json"),     
+    # comparison with: https://arxiv.org/abs/2106.10258
+    "coco_2017_val_query-intent-SLD": ("coco/val2017",
+                                    "concept_comparison_coco/annotations/instances_val2017_query-intent-SLD.json"),     
+    "coco_2017_val_query-intent-KLD": ("coco/val2017",
+                                    "concept_comparison_coco/annotations/instances_val2017_query-intent-KLD.json"),     
     # tuning version                  
     "coco_2017_tuning_train": ("coco/train2017",
                                 "tuning_coco/annotations/tuning_instances_train2017.json"),
@@ -48,12 +73,12 @@ _PREDEFINED_CONCEPTS_SPLITS['coco'] = {
                                 "tuning_coco/annotations/tuning_instances_val2017.json"),
     "coco_2017_tuning_train_all": ("coco/train2017",
                                     "concept_tuning_coco/annotations/tuning_instances_train2017_all.json"),
-    "coco_2017_tuning_train_subset": ("coco/train2017",
-                                    "concept_tuning_coco/annotations/tuning_instances_train2017_subset.json"),
+    "coco_2017_tuning_train_subset_old": ("coco/train2017",
+                                    "concept_tuning_coco/annotations/tuning_instances_train2017_subset_old.json"),
     "coco_2017_tuning_val_all": ("coco/train2017",
                                     "concept_tuning_coco/annotations/tuning_instances_val2017_all.json"),
-    "coco_2017_tuning_val_subset": ("coco/train2017",
-                                    "concept_tuning_coco/annotations/tuning_instances_val2017_subset.json"),
+    "coco_2017_tuning_val_subset_old": ("coco/train2017",
+                                    "concept_tuning_coco/annotations/tuning_instances_val2017_subset_old.json"),
 }
 
 _PREDEFINED_CONCEPTS_SPLITS['vg'] = {
@@ -64,18 +89,57 @@ _PREDEFINED_CONCEPTS_SPLITS['vg'] = {
     "vg_test": ("visual_genome/images",
                 "visual_genome/annotations/visual_genome_test.json"),
     # concept
-    "vg_train_subset": ("visual_genome/images",
-                        "concept_visual_genome/annotations/visual_genome_train_subset.json"),
     "vg_train_all": ("visual_genome/images",
                         "concept_visual_genome/annotations/visual_genome_train_all.json"),
-    "vg_val_subset": ("visual_genome/images",
-                        "concept_visual_genome/annotations/visual_genome_val_subset.json"),
     "vg_val_all": ("visual_genome/images",
                         "concept_visual_genome/annotations/visual_genome_val_all.json"),
-    "vg_test_subset": ("visual_genome/images",
-                        "concept_visual_genome/annotations/visual_genome_test_subset.json"),
     "vg_test_all": ("visual_genome/images",
                         "concept_visual_genome/annotations/visual_genome_test_all.json"),
+    "vg_train_all_old": ("visual_genome/images",
+                        "concept_visual_genome/annotations/visual_genome_train_all_old.json"),
+    "vg_val_all_old": ("visual_genome/images",
+                        "concept_visual_genome/annotations/visual_genome_val_all_old.json"),
+    "vg_test_all_old": ("visual_genome/images",
+                        "concept_visual_genome/annotations/visual_genome_test_all_old.json"),
+    "vg_train_subset": ("visual_genome/images",
+                        "concept_visual_genome/annotations/visual_genome_train_subset.json"),
+    "vg_val_subset": ("visual_genome/images",
+                        "concept_visual_genome/annotations/visual_genome_val_subset.json"),
+    "vg_test_subset": ("visual_genome/images",
+                        "concept_visual_genome/annotations/visual_genome_test_subset.json"),
+    "vg_train_subset_old": ("visual_genome/images",
+                        "concept_visual_genome/annotations/visual_genome_train_subset_old.json"),
+    "vg_val_subset_old": ("visual_genome/images",
+                        "concept_visual_genome/annotations/visual_genome_val_subset_old.json"),
+    "vg_test_subset_old": ("visual_genome/images",
+                        "concept_visual_genome/annotations/visual_genome_test_subset_old.json"),
+    # augmented subset as subset_old                  
+    "vg_val_subset_aug_subset_as_old": ("visual_genome/images",
+                        "concept_visual_genome/annotations/visual_genome_val_subset_aug_subset_as_old.json"),
+    "vg_test_subset_aug_subset_as_old": ("visual_genome/images",
+                        "concept_visual_genome/annotations/visual_genome_test_subset_aug_subset_as_old.json"),
+}
+
+_PREDEFINED_CONCEPTS_SPLITS['vg878'] = {
+    "vg878_train": ("cleaned_visual_genome/images",
+                "cleaned_visual_genome/annotations/cleaned_visual_genome_train.json"),
+    "vg878_val": ("cleaned_visual_genome/images",
+                "cleaned_visual_genome/annotations/cleaned_visual_genome_val.json"),
+    "vg878_test": ("cleaned_visual_genome/images",
+                "cleaned_visual_genome/annotations/cleaned_visual_genome_test.json"),
+    # concept
+    "vg878_train_all": ("cleaned_visual_genome/images",
+                        "concept_cleaned_visual_genome/annotations/cleaned_visual_genome_train_all.json"),
+    "vg878_val_all": ("cleaned_visual_genome/images",
+                        "concept_cleaned_visual_genome/annotations/cleaned_visual_genome_val_all.json"),
+    "vg878_test_all": ("cleaned_visual_genome/images",
+                        "concept_cleaned_visual_genome/annotations/cleaned_visual_genome_test_all.json"),
+    "vg878_train_subset_old": ("cleaned_visual_genome/images",
+                        "concept_cleaned_visual_genome/annotations/cleaned_visual_genome_train_subset_old.json"),
+    "vg878_val_subset_old": ("cleaned_visual_genome/images",
+                        "concept_cleaned_visual_genome/annotations/cleaned_visual_genome_val_subset_old.json"),
+    "vg878_test_subset_old": ("cleaned_visual_genome/images",
+                        "concept_cleaned_visual_genome/annotations/cleaned_visual_genome_test_subset_old.json"),
 }
 
 _PREDEFINED_CONCEPTS_SPLITS['oid'] = {
@@ -85,18 +149,18 @@ _PREDEFINED_CONCEPTS_SPLITS['oid'] = {
                     "OpenImagesDataset/annotations/openimages_v4_val_bbox.json"),
     "oid_v4_test": ("OpenImagesDataset/test/",
                     "OpenImagesDataset/annotations/openimages_v4_test_bbox.json"),
-    "oid_v4_train_subset": ("OpenImagesDataset/train/",
-                            "concept_OpenImagesDataset/annotations/openimages_v4_train_bbox_subset.json"),
     "oid_v4_train_all": ("OpenImagesDataset/train/",
                             "concept_OpenImagesDataset/annotations/openimages_v4_train_bbox_all.json"),
-    "oid_v4_val_subset": ("OpenImagesDataset/val/",
-                            "concept_OpenImagesDataset/annotations/openimages_v4_val_bbox_subset.json"),
     "oid_v4_val_all": ("OpenImagesDataset/val/",
                             "concept_OpenImagesDataset/annotations/openimages_v4_val_bbox_all.json"),
-    "oid_v4_tes_subset": ("OpenImagesDataset/test/",
-                            "concept_OpenImagesDataset/annotations/openimages_v4_test_bbox_subset.json"),
-    "oid_v4_tes_all": ("OpenImagesDataset/test/",
+    "oid_v4_test_all": ("OpenImagesDataset/test/",
                             "concept_OpenImagesDataset/annotations/openimages_v4_test_bbox_all.json"),
+    "oid_v4_train_subset_old": ("OpenImagesDataset/train/",
+                            "concept_OpenImagesDataset/annotations/openimages_v4_train_bbox_subset_old.json"),
+    "oid_v4_val_subset_old": ("OpenImagesDataset/val/",
+                            "concept_OpenImagesDataset/annotations/openimages_v4_val_bbox_subset_old.json"),
+    "oid_v4_test_subset_old": ("OpenImagesDataset/test/",
+                            "concept_OpenImagesDataset/annotations/openimages_v4_test_bbox_subset_old.json"),
 }
 
 
@@ -213,6 +277,14 @@ def _get_vg_instances_meta():
     }
     return ret
 
+def _get_vg878_instances_meta():
+    # This is for compatibility with COCO
+    thing_dataset_id_to_contiguous_id = {i: i for i in range(0, 878)} # VG878 annotations start from 0, not 1 as in COCO, and are in [0, 878]. Background class is not included
+    ret = {
+        "thing_dataset_id_to_contiguous_id": thing_dataset_id_to_contiguous_id,
+    }
+    return ret
+
 def _get_oid_instances_meta():
     # This is for compatibility with COCO
     thing_dataset_id_to_contiguous_id = {i: i-1 for i in range(1, 602)}  # OID annotations start from 1 as COCO and are in [1, 601]
@@ -227,6 +299,8 @@ def _get_builtin_metadata(dataset_name):
         return _get_coco_instances_meta()
     elif dataset_name == 'vg':
         return _get_vg_instances_meta()
+    elif dataset_name == 'vg878':
+        return _get_vg878_instances_meta()
     elif dataset_name == 'oid':
         return _get_oid_instances_meta()
     else:
@@ -252,7 +326,7 @@ def register_coco_instances(name, metadata, json_file, image_root):
     assert isinstance(json_file, (str, os.PathLike)), json_file
     assert isinstance(image_root, (str, os.PathLike)), image_root
     # 1. register a function which returns dicts
-    if 'subset' in name or 'all' in name:
+    if 'subset' in name or 'all' in name or 'query-intent' in name:
         loader_function = load_coco_with_concepts_json
     else:
         loader_function = load_coco_json
