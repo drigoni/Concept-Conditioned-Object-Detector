@@ -26,7 +26,7 @@ from detectron2.data.samplers import TrainingSampler
 from detectron2.data.build import get_detection_dataset_dicts
 from detectron2.engine import SimpleTrainer, DefaultTrainer, default_argument_parser, default_setup, launch
 from detectron2.evaluation import COCOEvaluator
-from extra import COCOEvaluator_postProcessing
+from extra import COCOEvaluator_postProcessing, COCOEvaluator_classAgnostic
 from detectron2.solver.build import maybe_add_gradient_clipping
 from detectron2.utils.logger import setup_logger
 from detectron2.data import MetadataCatalog
@@ -121,6 +121,12 @@ class Trainer(DefaultTrainer):
             concept_finder = ConceptFinder(cfg.CONCEPT.FILE, depth=cfg.CONCEPT.DEPTH, unique=cfg.CONCEPT.UNIQUE, only_name=cfg.CONCEPT.ONLY_NAME)
             coco2synset = concept_finder.coco2synset
             evaluator = COCOEvaluator_postProcessing
+            return evaluator(dataset_name, coco2synset, cfg, True, output_folder, use_fast_impl=False)
+        elif cfg.EVALUATOR_TYPE == 'classAgnostic':
+            # NOTE: drigoni: add concepts to classes
+            concept_finder = ConceptFinder(cfg.CONCEPT.FILE, depth=cfg.CONCEPT.DEPTH, unique=cfg.CONCEPT.UNIQUE, only_name=cfg.CONCEPT.ONLY_NAME)
+            coco2synset = concept_finder.coco2synset
+            evaluator = COCOEvaluator_classAgnostic
             return evaluator(dataset_name, coco2synset, cfg, True, output_folder, use_fast_impl=False)
         else:
             logger.error("Error. EVALUATOR_TYPE={} not valid. ".format(cfg.EVALUATOR_TYPE))
@@ -235,18 +241,9 @@ class Trainer(DefaultTrainer):
             # Avoid duplicating parameters
             if value in memo:
                 continue
-            # TODO drigoni: stop backpropagation in the backbone
-            # stop backpropagation in the backbones parameters
-            # if "backbone" in key:
-            #     print("Gradient stop for layer: ", key)
-            #     value.requires_grad = False
-            #     continue
             memo.add(value)
             lr = cfg.SOLVER.BASE_LR
             weight_decay = cfg.SOLVER.WEIGHT_DECAY
-            # TODO drigoni: the following if causes a problem and need to be fixed/removed.
-            # The problem is that no WEIGHT_DECAY_BIAS parameter is used in the config file.
-            # print("bias" in key, key, weight_decay, cfg.SOLVER.WEIGHT_DECAY_BIAS)
             if "bias" in key:
                 lr = cfg.SOLVER.BASE_LR * cfg.SOLVER.BIAS_LR_FACTOR
                 weight_decay = cfg.SOLVER.WEIGHT_DECAY_BIAS

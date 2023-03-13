@@ -79,6 +79,9 @@ If necessary, specify the number of machines and GPUs to use:
 python train_net.py --config {TRAINING_CONFIG_FILE} --num-gpus 4 --num-machines 4 --dist-url tcp://login1234:19206 
 ```
 
+NOTE: the `TRAINING_CONFIG_FILE` may need to be edited to correctly load pre-trained models and the training dataset.  
+
+
 ### Evaluation
 Two functions can be used to evaluate models.
 The former performs model evaluation without applying the post-processing filtering before evaluation:
@@ -90,7 +93,7 @@ In practice, the COCO evaluator loads all the bounding boxes predicted by the mo
 ```
 python train_net.py --config {TEST_CONFIG_FILE} --eval-only EVALUATOR_TYPE 'postProcessing'
 ```
-**NOTE**: Configuration files for testing presents a test set for evaluation that is not always correct. For this reason, during evaluation indicate the dataset to adopt:
+**NOTE**: Configuration files (i.e, `TEST_CONFIG_FILE` ), for testing presents a test set for evaluation that is not always correct. For this reason, during evaluation indicate the dataset to adopt:
 ```
 python train_net.py --config {TEST_CONFIG_FILE} --eval-only EVALUATOR_TYPE 'default' DATASETS.TEST '("coco_2017_val_subset_old",)'
 ```
@@ -127,14 +130,14 @@ However, we provide the models with the best performance.
 
 | Config | Model | Backbone | Dataset | Weight |    
 |:------:|:------|:---------|:--------|:------:|  
-|[cfg](configs/COCO/dh/swint/dh_swint_fpn_COCO_test.yaml)    |DynamicHead            |Swin-Tiny      |COCO   |[weight]()  |                            
-|[cfg](configs/COCO/dh/swint/dh_swint_fpn_COCO_concepts_test_cat.yaml)    |Concept DynamicHead    |Swin-Tiny      |COCO   |[weight]()  |
-|[cfg](configs/VG/dh/swint/dh_swint_fpn_VG_concepts_test_cat.yaml)    |DynamicHead            |Swin-Tiny      |VG     |[weight]()  |
-|[cfg](configs/VG/dh/swint/dh_swint_fpn_VG_concepts_test_cat.yaml)    |Concept DynamicHead    |Swin-Tiny      |VG     |[weight]()  |
+|[cfg](configs/COCO/dh/swint/dh_swint_fpn_COCO_test.yaml)    |DynamicHead            |Swin-Tiny      |COCO   |[weight](https://drive.google.com/file/d/1C64XjmEd8wNsR2A8FUrCNJvfUYgWrcTT/view?usp=share_link)  |                            
+|[cfg](configs/COCO/dh/swint/dh_swint_fpn_COCO_concepts_test_cat.yaml)    |Concept DynamicHead    |Swin-Tiny      |COCO   |[weight](https://drive.google.com/file/d/1eqexg8V2cnurqIbrh38WWBxw0t6Gj3gh/view?usp=sharing)  |
+|[cfg](configs/VG/dh/swint/dh_swint_fpn_VG_test.yaml)    |DynamicHead            |Swin-Tiny      |VG     |[weight](https://drive.google.com/file/d/1r2uNPyVADGeIOUhggVqzeuVs34J_AdgB/view?usp=sharing)  |
+|[cfg](configs/VG/dh/swint/dh_swint_fpn_VG_concepts_test_cat.yaml)    |Concept DynamicHead    |Swin-Tiny      |VG     |[weight](https://drive.google.com/file/d/1jpPuB6GwWYp-In2Fwhr0piNerfFmnj34/view?usp=sharing)  |
 
 
 # Information
-For any questions and comments, contact [TODO]().
+For any questions and comments, contact [davide.rigoni.2@phd.unipd.it](davide.rigoni.2@phd.unipd.it).
 
 # License
 MIT

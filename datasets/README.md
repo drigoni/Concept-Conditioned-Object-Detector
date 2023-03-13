@@ -94,7 +94,7 @@ Where:
 
 
 
-## Final Structure
+## Example of Final Structure
 The final `datasets` structure should be the following:
 ```
 Concept-Conditioned-Object-Detector
@@ -165,15 +165,6 @@ Concept-Conditioned-Object-Detector
 
 
 # Datasets
-Follow the links to download all the annotations used to validate and test our models with concepts.
-| Dataset | Link |  
-|:--------|:----:|  
-|tuning_coco                |[download](TODO)  |                            
-|concept_coco               |[download](TODO)  |                            
-|concept_tuning_coco        |[download](TODO)  |                            
-|concept_visual_genome      |[download](TODO)  |                            
-|concept_OpenImagesDataset  |[download](TODO)  |                            
-
-
-
+Follow the [link](https://drive.google.com/file/d/1WUawvqt-s9EI064oGrDEKaz6rbtkXDwB/view?usp=share_link) to download all the annotations used to validate and test our models with concepts.
+                   
 
