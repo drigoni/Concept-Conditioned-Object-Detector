@@ -165,6 +165,6 @@ Concept-Conditioned-Object-Detector
 
 
 # Datasets
-Follow the [link](https://drive.google.com/file/d/1WUawvqt-s9EI064oGrDEKaz6rbtkXDwB/view?usp=share_link) to download all the annotations used to validate and test our models with concepts.
+Follow the [link](https://drive.google.com/file/d/19RY36AKLRsgfuvk--WIL8qquXL87NIHb/view?usp=sharing) to download all the annotations used to validate and test our models with concepts.
                    
 
