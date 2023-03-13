@@ -60,12 +60,7 @@ _PREDEFINED_CONCEPTS_SPLITS['coco'] = {
     "coco_2017_val_subset_old_depth3": ("coco/val2017",
                                     "concept_coco/annotations/instances_val2017_subset_old_depth3.json"),    
     "coco_2017_val_subset_old_depth4": ("coco/val2017",
-                                    "concept_coco/annotations/instances_val2017_subset_old_depth4.json"),     
-    # comparison with: https://arxiv.org/abs/2106.10258
-    "coco_2017_val_query-intent-SLD": ("coco/val2017",
-                                    "concept_comparison_coco/annotations/instances_val2017_query-intent-SLD.json"),     
-    "coco_2017_val_query-intent-KLD": ("coco/val2017",
-                                    "concept_comparison_coco/annotations/instances_val2017_query-intent-KLD.json"),     
+                                    "concept_coco/annotations/instances_val2017_subset_old_depth4.json"),      
     # tuning version                  
     "coco_2017_tuning_train": ("coco/train2017",
                                 "tuning_coco/annotations/tuning_instances_train2017.json"),
@@ -118,28 +113,6 @@ _PREDEFINED_CONCEPTS_SPLITS['vg'] = {
                         "concept_visual_genome/annotations/visual_genome_val_subset_aug_subset_as_old.json"),
     "vg_test_subset_aug_subset_as_old": ("visual_genome/images",
                         "concept_visual_genome/annotations/visual_genome_test_subset_aug_subset_as_old.json"),
-}
-
-_PREDEFINED_CONCEPTS_SPLITS['vg878'] = {
-    "vg878_train": ("cleaned_visual_genome/images",
-                "cleaned_visual_genome/annotations/cleaned_visual_genome_train.json"),
-    "vg878_val": ("cleaned_visual_genome/images",
-                "cleaned_visual_genome/annotations/cleaned_visual_genome_val.json"),
-    "vg878_test": ("cleaned_visual_genome/images",
-                "cleaned_visual_genome/annotations/cleaned_visual_genome_test.json"),
-    # concept
-    "vg878_train_all": ("cleaned_visual_genome/images",
-                        "concept_cleaned_visual_genome/annotations/cleaned_visual_genome_train_all.json"),
-    "vg878_val_all": ("cleaned_visual_genome/images",
-                        "concept_cleaned_visual_genome/annotations/cleaned_visual_genome_val_all.json"),
-    "vg878_test_all": ("cleaned_visual_genome/images",
-                        "concept_cleaned_visual_genome/annotations/cleaned_visual_genome_test_all.json"),
-    "vg878_train_subset_old": ("cleaned_visual_genome/images",
-                        "concept_cleaned_visual_genome/annotations/cleaned_visual_genome_train_subset_old.json"),
-    "vg878_val_subset_old": ("cleaned_visual_genome/images",
-                        "concept_cleaned_visual_genome/annotations/cleaned_visual_genome_val_subset_old.json"),
-    "vg878_test_subset_old": ("cleaned_visual_genome/images",
-                        "concept_cleaned_visual_genome/annotations/cleaned_visual_genome_test_subset_old.json"),
 }
 
 _PREDEFINED_CONCEPTS_SPLITS['oid'] = {
@@ -277,13 +250,6 @@ def _get_vg_instances_meta():
     }
     return ret
 
-def _get_vg878_instances_meta():
-    # This is for compatibility with COCO
-    thing_dataset_id_to_contiguous_id = {i: i for i in range(0, 878)} # VG878 annotations start from 0, not 1 as in COCO, and are in [0, 878]. Background class is not included
-    ret = {
-        "thing_dataset_id_to_contiguous_id": thing_dataset_id_to_contiguous_id,
-    }
-    return ret
 
 def _get_oid_instances_meta():
     # This is for compatibility with COCO
@@ -299,8 +265,6 @@ def _get_builtin_metadata(dataset_name):
         return _get_coco_instances_meta()
     elif dataset_name == 'vg':
         return _get_vg_instances_meta()
-    elif dataset_name == 'vg878':
-        return _get_vg878_instances_meta()
     elif dataset_name == 'oid':
         return _get_oid_instances_meta()
     else:

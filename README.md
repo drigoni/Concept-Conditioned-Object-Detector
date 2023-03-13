@@ -47,7 +47,8 @@ The project is structured as follows:
 * `configs`: contains the configuration files to reproduce each experiment presented in the paper;
 * `extra`: contains our main code;
 * `results`: contains the results;
-* `pretrained`: contains pre-trained checkpoints.
+* `pretrained`: contains pre-trained checkpoints;
+* `tools`: contains auxiliary files.
 
 
 ## Datasets
@@ -91,7 +92,7 @@ python train_net.py --config {TEST_CONFIG_FILE} --eval-only EVALUATOR_TYPE 'post
 ```
 **NOTE**: Configuration files for testing presents a test set for evaluation that is not always correct. For this reason, during evaluation indicate the dataset to adopt:
 ```
-python train_net.py --config {TEST_CONFIG_FILE} --eval-only EVALUATOR_TYPE 'default' DATASETS.TEST '("coco_2017_val_subset",)'
+python train_net.py --config {TEST_CONFIG_FILE} --eval-only EVALUATOR_TYPE 'default' DATASETS.TEST '("coco_2017_val_subset_old",)'
 ```
 All the datasets can be seen in the file: `./extra/datasets.py'`.
 
@@ -126,10 +127,10 @@ However, we provide the models with the best performance.
 
 | Config | Model | Backbone | Dataset | Weight |    
 |:------:|:------|:---------|:--------|:------:|  
-|[cfg](configs/COCO/dh/swint/dh_swint_fpn_COCO_test.yaml)    |DynamicHead            |Swin-Tiny      |COCO   |[weight](https://drive.google.com/file/d/17wzANOd-pF9gn5rbajvgChf8ctaoCoYf/view?usp=sharing)  |                            
-|[cfg](configs/COCO/dh/swint/dh_swint_fpn_COCO_concepts_test_cat.yaml)    |Concept DynamicHead    |Swin-Tiny      |COCO   |[weight](https://drive.google.com/file/d/1IpqZ9YOoQdTkTssaSKmTspdhwkFSvN_Q/view?usp=sharing)  |
-|[cfg](configs/VG/dh/swint/dh_swint_fpn_VG_concepts_test_cat.yaml)    |DynamicHead            |Swin-Tiny      |VG     |[weight](https://drive.google.com/file/d/1TLLEU8FjR-u7xNkAd1LNKif_VwD0uOVe/view?usp=sharing)  |
-|[cfg](configs/VG/dh/swint/dh_swint_fpn_VG_concepts_test_cat.yaml)    |Concept DynamicHead    |Swin-Tiny      |VG     |[weight](https://drive.google.com/file/d/1Z-cH-rvVbtfi2p5y3Zoffx5BZNoqDFlf/view?usp=sharing)  |
+|[cfg](configs/COCO/dh/swint/dh_swint_fpn_COCO_test.yaml)    |DynamicHead            |Swin-Tiny      |COCO   |[weight]()  |                            
+|[cfg](configs/COCO/dh/swint/dh_swint_fpn_COCO_concepts_test_cat.yaml)    |Concept DynamicHead    |Swin-Tiny      |COCO   |[weight]()  |
+|[cfg](configs/VG/dh/swint/dh_swint_fpn_VG_concepts_test_cat.yaml)    |DynamicHead            |Swin-Tiny      |VG     |[weight]()  |
+|[cfg](configs/VG/dh/swint/dh_swint_fpn_VG_concepts_test_cat.yaml)    |Concept DynamicHead    |Swin-Tiny      |VG     |[weight]()  |
 
 
 # Information

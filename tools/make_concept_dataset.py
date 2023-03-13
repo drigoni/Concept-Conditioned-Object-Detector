@@ -26,7 +26,6 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 nltk.download('omw-1.4')
 
 
-# NOTE: this class is not anymore used. It add a new key in the dataset dictionary.
 class MakeConceptDataset:
     def __init__(self, args):
         # download package
@@ -122,13 +121,6 @@ class MakeConceptDataset:
             if len(curr_annotations) > 0:
                 if self.type == 'subset' or self.type == 'all' or self.type == 'subset_old' or self.type == 'all_old':
                     # list_unique_cat = list(set({ann['category_id'] for ann in curr_annotations}))   # unique list of categories
-                    list_categories = [ann['category_id'] for ann in curr_annotations]   # unique list of categories
-                    selected_categories, selected_concepts = ConceptFinder.sample_categories_and_concepts(list_categories, self.concepts, self.type)
-                    annos_filtered = [ann for ann in curr_annotations if ann['category_id'] in selected_categories]
-                    new_annotations.extend(annos_filtered)
-                    new_concepts[image_id] = selected_concepts
-                elif self.type == 'query-intent-SLD' or self.type == 'query-intent-KLD':
-                    # NOTE: query-intent-SLD and query-intent-KLD is done to compare with the following work: https://arxiv.org/abs/2106.10258
                     list_categories = [ann['category_id'] for ann in curr_annotations]   # unique list of categories
                     selected_categories, selected_concepts = ConceptFinder.sample_categories_and_concepts(list_categories, self.concepts, self.type)
                     annos_filtered = [ann for ann in curr_annotations if ann['category_id'] in selected_categories]
@@ -243,7 +235,7 @@ def parse_args():
                         type=lambda x: True if x.lower() == 'true' else False)
     parser.add_argument('--type', dest='type',
                         help='Generating considering all or subsets',
-                        choices=['subset', 'all', 'powerset', 'subset_old', 'subset_old_v2', 'all_old', 'query-intent-SLD', 'query-intent-KLD', 'aug_subset_as_old'],
+                        choices=['subset', 'all', 'subset_old', 'all_old', 'aug_subset_as_old'],
                         default='subset')
     args = parser.parse_args()
     return args

@@ -39,7 +39,7 @@ Subsequently it is necessary:
 ## OpenImages Format Conversion
 The original OpenImages annotations contained in the `OpenImagesDataset` folder, are generate in COCO json format using the following process:
 1. Convert the original dataset format to the COCO json format using the following repository: [openimages2coco](https://github.com/drigoni/openimages2coco). The results should be placed in the `OpenImagesDataset->annotations` folder.
-2. However, some images are incorrectly sized and need to be corrected using: `python fix_OpenImagedDataset.py`. The results are reported in the folder `OpenImagesDataset->annotations` with the suffix `_fixSize`.
+2. However, some images are incorrectly sized and need to be corrected using: `python tools/fix_OpenImagedDataset.py`. The results are reported in the folder `OpenImagesDataset->annotations` with the suffix `_fixSize`.
 3. Delete all the previous files and remove the `_fixSize` extension from the newly generated ones.
 
 
@@ -47,7 +47,7 @@ The original OpenImages annotations contained in the `OpenImagesDataset` folder,
 Follow the commands to use to generate the `Tuning COCO` splits:
 ```
 mkdir -p datasets/tuning_coco/annotations/
-python make_tuning_dataset.py  --coco_dataset ./datasets/coco/annotations/instances_train2017.json --n_valid_examples 5000
+python tools/make_tuning_dataset.py  --coco_dataset ./datasets/coco/annotations/instances_train2017.json --n_valid_examples 5000
 ```
 
 After this command, the ``tuning_coco`` folder with its annotations should be generated.
@@ -66,31 +66,30 @@ mkdir -p datasets/concept_visual_genome/annotations/
 mkdir -p datasets/concept_OpenImagesDataset/annotations/
 
 # COCO with concepts
-python make_concept_dataset.py  --coco_dataset ./datasets/coco/annotations/instances_{SPLIT}2017.json \
-                                --coco2concepts ./concept/coco_to_synset.json \
-                                --dataset_name concept_coco \
-                                --unique true --level {DEPTH_VALUE}  --type {TYPE}
-python make_concept_dataset.py  --coco_dataset ./datasets/tuning_coco/annotations/tuning_instances_{SPLIT}2017.json \
-                                --coco2concepts ./concept/coco_to_synset.json \
-                                --dataset_name concept_tuning_coco \
-                                --unique true --level {DEPTH_VALUE}  --type {TYPE}
+python tools/make_concept_dataset.py    --coco_dataset ./datasets/coco/annotations/instances_{SPLIT}2017.json \
+                                        --coco2concepts ./concept/coco_to_synset.json \
+                                        --dataset_name concept_coco \
+                                        --unique true --level {DEPTH_VALUE}  --type {TYPE}
+python tools/make_concept_dataset.py    --coco_dataset ./datasets/tuning_coco/annotations/tuning_instances_{SPLIT}2017.json \
+                                        --coco2concepts ./concept/coco_to_synset.json \
+                                        --dataset_name concept_tuning_coco \
+                                        --unique true --level {DEPTH_VALUE}  --type {TYPE}
 # VISUAL GENOME with concepts
-python make_concept_dataset.py  --coco_dataset ./datasets/visual_genome/annotations/visual_genome_{SPLIT}.json \
-                                --coco2concepts ./concept/vg_to_synset.json \
-                                --dataset_name concept_visual_genome \
-                                --unique true --level {DEPTH_VALUE}  --type {TYPE}
+python tools/make_concept_dataset.py    --coco_dataset ./datasets/visual_genome/annotations/visual_genome_{SPLIT}.json \
+                                        --coco2concepts ./concept/vg_to_synset.json \
+                                        --dataset_name concept_visual_genome \
+                                        --unique true --level {DEPTH_VALUE}  --type {TYPE}
 
 # OPENIMAGES with concepts
-python make_concept_dataset.py  --coco_dataset ./datasets/OpenImagesDataset/annotations/openimages_v4_{SPLIT}_bbox.json \
-                                --coco2concepts ./concept/oid_to_synset.json \
-                                --dataset_name concept_OpenImagesDataset \
-                                --unique true --level {DEPTH_VALUE}  --type {TYPE}
+python tools/make_concept_dataset.py    --coco_dataset ./datasets/OpenImagesDataset/annotations/openimages_v4_{SPLIT}_bbox.json \
+                                        --coco2concepts ./concept/oid_to_synset.json \
+                                        --dataset_name concept_OpenImagesDataset \
+                                        --unique true --level {DEPTH_VALUE}  --type {TYPE}
 ```
 Where:
 * `SPLITS` refers to one of the following choices `[train, val, test]`. COCO does not have the `test` set.
-* `TYPE` refers to one of the following choices `[all, subset]` which refers to the case in qhich all the concepts are considered or just the focused dataset is conddiered.
+* `TYPE` refers to one of the following choices `[all_old, subset_old, all, subset]`.  `all_old` extends already available datasets with concepts, `subset_old` generate the `FOCUSED` version of the datasets, and `all` and `subset` generates the datasets as explained in Section 10 of the Supplementary Material.
 * `DEPTH_VALUE` refers to the depth value to consider in sampling WordNet descendants.
-
 
 
 
@@ -128,40 +127,40 @@ Concept-Conditioned-Object-Detector
         
     |-- concept_coco
         |-- annotations
-            |-- instances_train2017_all.json
-            |-- instances_train2017_subset.json
-            |-- instances_val2017_all.json
-            |-- instances_val2017_subset.json
-            |-- instances_val2017_all_depth0.json
-            |-- instances_val2017_subset_depth0.json
-            |-- instances_val2017_all_depth2.json
-            |-- instances_val2017_subset_depth2.json
-            |-- instances_val2017_all_depth3.json
-            |-- instances_val2017_subset_depth3.json
-            |-- instances_val2017_all_depth4.json
-            |-- instances_val2017_subset_depth4.json
+            |-- instances_train2017_all_old.json
+            |-- instances_train2017_subset_old.json
+            |-- instances_val2017_all_old.json
+            |-- instances_val2017_subset_old.json
+            |-- instances_val2017_all_old_depth0.json
+            |-- instances_val2017_subset_old_depth0.json
+            |-- instances_val2017_all_old_depth2.json
+            |-- instances_val2017_subset_old_depth2.json
+            |-- instances_val2017_all_old_depth3.json
+            |-- instances_val2017_subset_old_depth3.json
+            |-- instances_val2017_all_old_depth4.json
+            |-- instances_val2017_subset_old_depth4.json
     |-- concept_tuning_coco
         |-- annotations
-            |-- tuning_instances_train2017_all.json
-            |-- tuning_instances_train2017_subset.json
-            |-- tuning_instances_val2017_all.json
-            |-- tuning_instances_val2017_subset.json
+            |-- tuning_instances_train2017_all_old.json
+            |-- tuning_instances_train2017_subset_old.json
+            |-- tuning_instances_val2017_all_old.json
+            |-- tuning_instances_val2017_subset_old.json
     |-- concept_visual_genome
         |-- annotations
-            |-- visual_genome_train_all.json
-            |-- visual_genome_train_subset.json
-            |-- visual_genome_val_all.json
-            |-- visual_genome_val_subset.json
-            |-- visual_genome_test_all.json
-            |-- visual_genome_test_subset.json
+            |-- visual_genome_train_all_old.json
+            |-- visual_genome_train_subset_old.json
+            |-- visual_genome_val_all_old.json
+            |-- visual_genome_val_subset_old.json
+            |-- visual_genome_test_all_old.json
+            |-- visual_genome_test_subset_old.json
     |-- concept_OpenImagesDataset
         |-- annotations
-            |-- openimages_v4_train_bbox_all.json
-            |-- openimages_v4_val_bbox_all.json
-            |-- openimages_v4_test_bbox_all.json
-            |-- openimages_v4_train_bbox_subset.json
-            |-- openimages_v4_val_bbox_subset.json
-            |-- openimages_v4_test_bbox_subset.json
+            |-- openimages_v4_train_bbox_all_old.json
+            |-- openimages_v4_val_bbox_all_old.json
+            |-- openimages_v4_test_bbox_all_old.json
+            |-- openimages_v4_train_bbox_subset_old.json
+            |-- openimages_v4_val_bbox_subset_old.json
+            |-- openimages_v4_test_bbox_subset_old.json
 ```
 
 
@@ -169,11 +168,11 @@ Concept-Conditioned-Object-Detector
 Follow the links to download all the annotations used to validate and test our models with concepts.
 | Dataset | Link |  
 |:--------|:----:|  
-|tuning_coco                |[download](https://drive.google.com/file/d/1FJ6GSIUYTlF8JsM5dyNb5uTXaGa_a3nz/view?usp=sharing)  |                            
-|concept_coco               |[download](https://drive.google.com/file/d/1WaHXQMzFEDJwYAlP6GV2oGts0t1qDX7N/view?usp=sharing)  |                            
-|concept_tuning_coco        |[download](https://drive.google.com/file/d/11vKID9OjngJw2XQkdXEqkeGPIqed1jXY/view?usp=sharing)  |                            
-|concept_visual_genome      |[download](https://drive.google.com/file/d/1F7CjByYCB5epdMgJe-Qi6ad-YGIdKmNG/view?usp=sharing)  |                            
-|concept_OpenImagesDataset  |[download](https://drive.google.com/file/d/1hi6DRs-ldNRWoxaLDRsY88-Td3t41XdW/view?usp=sharing)  |                            
+|tuning_coco                |[download](TODO)  |                            
+|concept_coco               |[download](TODO)  |                            
+|concept_tuning_coco        |[download](TODO)  |                            
+|concept_visual_genome      |[download](TODO)  |                            
+|concept_OpenImagesDataset  |[download](TODO)  |                            
 
 
 
