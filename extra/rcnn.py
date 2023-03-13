@@ -17,13 +17,13 @@ from detectron2.modeling.proposal_generator import build_proposal_generator
 from detectron2.modeling.roi_heads import build_roi_heads
 from detectron2.modeling.meta_arch.build import META_ARCH_REGISTRY
 
-__all__ = ["drigoniGeneralizedRCNN"]
+__all__ = ["authorGeneralizedRCNN"]
 
 logger = logging.getLogger(__name__)
 
 
 @META_ARCH_REGISTRY.register()
-class drigoniGeneralizedRCNN(nn.Module):
+class authorGeneralizedRCNN(nn.Module):
     """
     Generalized R-CNN. Any models that contains the following three components:
     1. Per-image feature extraction (aka backbone)
@@ -215,7 +215,7 @@ class drigoniGeneralizedRCNN(nn.Module):
 
         if do_postprocess:
             assert not torch.jit.is_scripting(), "Scripting is not supported for postprocess."
-            return drigoniGeneralizedRCNN._postprocess(results, batched_inputs, images.image_sizes)
+            return authorGeneralizedRCNN._postprocess(results, batched_inputs, images.image_sizes)
         return results
 
     def preprocess_image(self, batched_inputs: List[Dict[str, torch.Tensor]]):

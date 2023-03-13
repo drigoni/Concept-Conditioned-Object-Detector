@@ -20,14 +20,14 @@ from detectron2.modeling.meta_arch.build import META_ARCH_REGISTRY
 from detectron2.modeling.meta_arch.dense_detector import DenseDetector, permute_to_N_HWA_K  # noqa
 from detectron2.modeling.postprocessing import detector_postprocess
 
-__all__ = ["drigoniRetinaNet"]
+__all__ = ["authorRetinaNet"]
 
 
 logger = logging.getLogger(__name__)
 
 
 @META_ARCH_REGISTRY.register()
-class drigoniRetinaNet(DenseDetector):
+class authorRetinaNet(DenseDetector):
     """
     Implement RetinaNet in :paper:`RetinaNet`.
     """

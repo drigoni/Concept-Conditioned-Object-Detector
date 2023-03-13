@@ -17,7 +17,7 @@ from detectron2.modeling.proposal_generator import build_proposal_generator
 from detectron2.modeling.roi_heads import build_roi_heads
 from detectron2.modeling.meta_arch.build import META_ARCH_REGISTRY
 # from detectron2.modeling.meta_arch.rcnn import GeneralizedRCNN
-from ..rcnn import drigoniGeneralizedRCNN
+from ..rcnn import authorGeneralizedRCNN
 
 from .concept_net import ConceptNet
 
@@ -25,7 +25,7 @@ __all__ = ["ConceptGeneralizedRCNN"]
 
 
 @META_ARCH_REGISTRY.register()
-class ConceptGeneralizedRCNN(drigoniGeneralizedRCNN):
+class ConceptGeneralizedRCNN(authorGeneralizedRCNN):
     """
     Generalized R-CNN. Any models that contains the following three components:
     1. Per-image feature extraction (aka backbone)
@@ -261,5 +261,5 @@ class ConceptGeneralizedRCNN(drigoniGeneralizedRCNN):
         """
         Rescale the output instances to the target size.
         """
-        processed_results = drigoniGeneralizedRCNN._postprocess(instances, batched_inputs, image_sizes)
+        processed_results = authorGeneralizedRCNN._postprocess(instances, batched_inputs, image_sizes)
         return processed_results

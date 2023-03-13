@@ -12,9 +12,9 @@ from .concept.concept_postprocessing_filtering import evaluation_filtering_proce
 # meta archs
 from .atss import ATSS
 from .concept.concept_atss import CATSS
-from .rcnn import drigoniGeneralizedRCNN
+from .rcnn import authorGeneralizedRCNN
 from .concept.concept_rcnn import ConceptGeneralizedRCNN
-from .retinanet import drigoniRetinaNet
+from .retinanet import authorRetinaNet
 from .concept.concept_retinanet import ConceptRetinaNet
 
 # backbones

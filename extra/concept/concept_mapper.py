@@ -245,7 +245,7 @@ class ConceptMapper:
                 # do not change annotations
                 # annos = annos
                 dataset_dict["concepts"] = ['entity.n.01']
-        elif self.meta_architecture in ["ATSS", "GeneralizedRCNN", "drigoniGeneralizedRCNN", "RetinaNet", "drigoniRetinaNet"]:
+        elif self.meta_architecture in ["ATSS", "GeneralizedRCNN", "authorGeneralizedRCNN", "RetinaNet", "authorRetinaNet"]:
             # standard object detector behaviour without concepts.
             pass
         else:
