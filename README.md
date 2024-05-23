@@ -1,5 +1,5 @@
 # Concept-Conditioned Object Detectors
-This repository contains the code used to generate the results reported in the paper: [TODO]() \
+This repository contains the code used to generate the results reported in the paper: [Concept-Conditioned-Object-Detector](https://link.springer.com/article/10.1007/s00521-024-09914-5) \
 Some of our code is based on [DynamicHead](https://github.com/microsoft/DynamicHead). Thanks!
 
 <!---
