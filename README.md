@@ -4,18 +4,19 @@ Some of our code is based on [DynamicHead](https://github.com/microsoft/DynamicH
 
 <!---
 ### Citation
+-->
 
 ```BibTeX
-@InProceedings{Dai_2021_CVPR,
-    author    = {Dai, Xiyang and Chen, Yinpeng and Xiao, Bin and Chen, Dongdong and Liu, Mengchen and Yuan, Lu and Zhang, Lei},
-    title     = {Dynamic Head: Unifying Object Detection Heads With Attentions},
-    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    month     = {June},
-    year      = {2021},
-    pages     = {7373-7382}
+@article{rigoni2024object,
+  title={Object search by a concept-conditioned object detector},
+  author={Rigoni, Davide and Serafini, Luciano and Sperduti, Alessandro},
+  journal={Neural Computing and Applications},
+  pages={1--21},
+  year={2024},
+  publisher={Springer}
 }
 ```
--->
+
 
 ## Dependencies
 This project uses the `conda` environment.
